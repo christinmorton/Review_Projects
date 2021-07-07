@@ -1,0 +1,11 @@
+{
+  "name": "review_project",
+  "version": "1.0.0",
+  "description": "This project is just the main application library for my other two review projects. One is Data_Structures_Review and two Design_Patterns_Review.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Christin Morton",
+  "license": "MIT"
+}
