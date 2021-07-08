@@ -1,6 +1,9 @@
 /* eslint-disable indent */
 /* eslint-disable no-undef */
+const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 // let mode = 'development';
 let mode = 'production';
@@ -16,6 +19,7 @@ module.exports = {
   target: target,
 
   output: {
+    path: path.resolve(__dirname, 'dist'),
     assetModuleFilename: 'images/[hash][ext][query]',
   },
 
@@ -60,5 +64,11 @@ module.exports = {
     hot: true,
   },
 
-  plugins: [new MiniCssExtractPlugin()],
+  plugins: [
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin(),
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+    }),
+  ],
 };
