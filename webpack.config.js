@@ -1,3 +1,5 @@
+/* eslint-disable indent */
+/* eslint-disable no-undef */
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 // let mode = 'development';
@@ -13,12 +15,30 @@ module.exports = {
   mode: mode,
   target: target,
 
+  output: {
+    assetModuleFilename: 'images/[hash][ext][query]',
+  },
+
   module: {
     rules: [
       {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        type: 'asset',
+        // type: 'asset/resource',
+        // type: 'asset/inline',
+        // parser: {
+        //   dataUrlCondition: {
+        //     maxSize: 30 * 1024,
+        //   },
+        // },
+      },
+      {
         test: /\.(s[ac]|c)ss$/i,
         use: [
-          MiniCssExtractPlugin.loader,
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: { publicPath: '' },
+          },
           'css-loader',
           'postcss-loader',
           'sass-loader',
