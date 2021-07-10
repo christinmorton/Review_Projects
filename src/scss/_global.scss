@@ -1,7 +1,8 @@
 @use "variables";
 
 body {
-  background-color: variables.$bg;
+  // background-color: variables.$bg;
+  background: linear-gradient(to bottom right, variables.$bg2, variables.$bg);
   margin: 10rem;
   color: var(--text);
 }
